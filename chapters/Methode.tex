@@ -1,0 +1,43 @@
+\chapter{Methode}
+\label{chapt:Methode}
+\section{Fragestellung}
+Aus diesem Grund stellt sich die Frage, ob sich genetische Algorithmen zur Optimierung von Obfuskatorkaskaden unter den Kriterien die für praktische Red Team Assignments relevant sind, als Werkzeug nutzen lassen. Diese Frage speist sich zum einen aus der ungeheuren Prävalenz von Obfuskatoren und Packern in der Bedrohungslage (QUelle: ?) und auf der anderen Seite den zeitlichen und zum Teil auch ressourcenbedingten Begrenzungen, die ein Red Team einhalten muss. 
+
+\section{Hypothesen}
+Im Anbetracht der Fragestellung lassen sich schon im Vorfeld einige Vermutungen anstellen, die im Folgenden dargelegt werden sollen.
+\subsection{PE-Files}
+\textit{Mehrfach obfuskierte PE Files werden wahrscheinlicher von AV-Software entdeckt und/oder anfälliger für Dateikorrumpierung.}
+PE Files sind lore Ipsum dolor sit. ----------------------------------
+
+Durch Obfuskation steigt zum einen die Größe der Datei und die Entropie innerhalb der Datei, was beides Faktoren sein können, die von AV-Software erkannt und betrachtet werden können.
+
+
+
+\section{Kriterien}
+    \subsection{Red Teaming}
+\section{Verwendete Technologie}
+\section{Genetischer Algorithmus im Detail}
+    \subsection{Suchproblem Formalisierung}
+    Um einen genetischen Algorithmus für ein Problem sinnvoll zu verwenden, muss zuerst einmal ein zugrunde liegendes Problem als Suchproblem formuliert werden. Im vorliegenden Anwendungsfall würde eine solche Formalisierung daraus bestehen.
+
+Sei $K$ eine Konfiguration, bestehend aus einer Menge von Elementen vom Typ $I$ oder $E$, wobei jedes Element eigene Eigenschaften haben kann. Die Konfiguration $K$ ist so zu wählen, dass die Funktion $f(K)$ maximal wird.
+
+Formal kann das Problem wie folgt beschrieben werden:
+
+Sei $K = \{e_1, e_2, \ldots, e_n\}$ eine Menge von Elementen, wobei jedes Element $e_i$ entweder vom Typ $I$ oder $E$ ist. Jedes Element vom Typ $I$ und vom Typ $E$ hat eine bestimmte fixe Menge von Eigenschaften $P_i$. Gesucht ist eine Konfiguration $K$, sodass die Funktion $f(K)$ maximiert wird.
+
+\begin{comment}
+
+\end{comment}
+\section{Gütekriterien und Definition}
+Eine Obfuscation ist dann gut, wenn sie von AV nicht erkannt wird, ausführbar ist und noch ihren Zweck erfüllt. Eine langsame Erkennung durch AV wird ihr positiv angerechnet. Ein Durchlauf eines Genetischen Algorithmus ist gut, wenn er eine Anzahl von guten Obfuskationen > 0 erzeugt und eine geringe Gesamtlaufzeit hat.
+\section{Red-Teaming Kriterien}
+Aufgrund der Anforderungen, die im Red Teaming relevant sind, dürfen Sachen nicht ewig lange dauern und nicht spezifisch auf gegebene Betriebssysteme, Techniken, AV Software zugeschnitten sein.
+
+\section{Verwendete Technologien}
+    \subsection{Pipeline}
+    Obscurus = Internes SAP Tool/Framework zum API Basierten Obfuskieren von Exe und RAW Payloads mittels Obfuskator und Konfiguraionen, sowie einem 
+    \subsection{Obfuskatoren}
+    Nymcrypt2 und Inceptor
+    \subsection{Antivirenscanner}
+    Microsoft Defender stuff
