@@ -2,10 +2,34 @@
 \label{chapter:theorie}
 
 \section{Malware Erkennung}
-Viel Black Box zeug Kommerziell
+Malware wird komplexer \cite{pascalmaniriho_2023_a}  und damit wird die Herausforderung der Erkennung von Malware ebenso komplexer. Heute geht man soweit, dass Malwareerkennung ein NP Vollständiges Problem ist \cite{pascalmaniriho_2023_a} und keine Malware Software alle Varianten beliebiger Malwareklassen und Familien erkennen kann \cite{aboaoja_2022_malware}, da neue Malware zunehmend Technologien nutz, um Malwareerkennung und Antivirenprogrammen zu entgehen (Verweis auf Section Malware Erkennung Umgehnung). Angefangen bei Methoden wie Obfuskierung, Packing, dynamischem Malware Verhalten und Fileless Malware \cite{aslan_2020_a}. 
+
+Durch die große Verbreitung (71\% Windows 10, 23\% Windows 11 \cite{Klotz, A}) von Windows als Betriebssystem, wurde diese auch vermehrt ein Ziel von Angreifern, sodass die Entwicklung von Windowsmalware weit fortgeschritten ist und die größte Verbreitung hat \cite{aslan_2020_a}. Diese Entwicklung lässt den Schluss zu, dass auch Angreifer nach einer Maximierung ihrer Effizienz streben und den Großteil ihrer Zeit auf weit verbreitete Tools verwenden werden, sodass die häufigste AV Lösung diese sein wird, bei der die meisten Exploits gefunden werden können. Erste Schritte um mit diesen Problemen umzugehen waren bereits die Impfung von AV Software \cite{murali_2023_evolving} und das Training von ML Klassifikatoren mittels unrealistischer, wissenschaftlich generierter Malware Varianten \cite{dyrmishi_2023_on}.
+
+\subsection{Analyse}
+Der Erkennung von Malware liegt die Analyse von Dateien zugrunde, welche Faktoren wie den Datentyp, den Byte oder Optcode von Dateien in Betracht zieht und sich in dynamische, statische und Hybride Analysen aufteilen lässt \cite{aboaoja_2023_a}. Aus den daraus gewonnenen Eigenschaften wird dann eine Klassifikation von Dateien abgeleitet.
+\subsubsection{Statische Analyse}
+Statische Analysen operieren auf dem File ohne dieses File auszuführen. So können sie den Sourcecode und API-Calls in Betracht ziehen, Signaturen über Source- und Optcodes bilden, oder Signaturen über Abstraktionen, wie zum Beispiel die Abfolge von API Calls\cite{pascalmaniriho_2023_apimaldetect} bilden. Aber auch die Kompressionsrate oder die Entropie einer Datei, sowie die Header eines PE Files können hier einbezogen werden \cite{aboaoja_2023_a, aslan_2020_a}. 
+
+\subsubsection{Dynamische Analyse}
+Die dynamische Analyse basiert darauf, dass eine potentielle Malware in einer kontrollierten Umgebung, wie einer Sandbox, VM oder emulierten Maschiene ausgeführt und für eine begrenzte Zeit in ihrer Ausführung beobachtet wird\cite{aboaoja_2023_a}.
+
 
 \section{Malware Erkennung Umgehung}
 viel Wissenschaftliches gegen open Source und Black Box zeug
+Obfuscation, Packing, Adversarial Example
+==> Problem: Die wenigsten haben Zeit/Ressourcen im Kopf dabei
 
-\section{Genetische Algorithmen in Cyber Security}
-Entweder als Tool zur Noise Generation, Byte Substitution, Genetische Programmierung 
+\section{Genetische Algorithmen}
+\subsection{Genetische Algorithmen allgemein}
+Genetische Algorithmen sind als Teilbereich von künstlicher Intelligenz ein lange bekanntes Feld in der Informatik. Sie finden bei Optimierungs- und Suchproblemen verschiedener Art Anwendung und liefern eine Balance aus Performance und Ergebnisqualität. Genetische Algorithmen sind nicht in der Lage für eine optimale Lösung zu garantieren, finden aber - bei guter Parametrisierung - eine gute Lösung in einem Bruchteil der Zeit, die eine vollständige Prüfung des Suchraums beanspruchen würde. Auf der anderen Seite sind sie als Konzept ebenso breite Anwendung findet wie Random Search, nur dass sie eine bessere Performance zeigt.
+
+Genetische Algorithmen orientieren sich in ihrer Funktionsweise der Evolution und Genetik und reihen sich damit in das  Themenfeld des "Evolutionary Computings" ein.
+Die zentralen Bestandteile eines genetischen Algorithmus sind die Repräsentation von Kandidaten, Selektion, Mutation, Rekombination und Fitness Berechnung. Die Repräsentation beschreibt, wie ein Objekt, das als Lösung repräsentiert wird (z.B. Bitstring, geordnete Liste von Knoten, ...). Selektion beschreibt den Prozess, wie aus einer bestehenden Population (Generation) eine neue Generation ausgewählt wird, in der Art, dass diese mit hoher Wahrscheinlichkeit eine höhere durchschnittliche Fitness hat. Die Mutation verändert Aspekte der einzelnen Kandidaten, indem sie Veränderungen innerhalb der Repräsentation durchführt und so neues genetisches Material einbringt. Die Recombination erklärt, wie zwei Lösungskandidaten sich reproduzieren und ihr vorhandenes Genetisches Material miteinander rekombinieren um zwei neue Kandidaten hervorzubringen. Die Fitnessfunktion ist die Funktion, die erklärt, wie gut ein gegebener Lösungskandidat ist.
+
+Das klassische Beispiel für genetische Algorithmen ist das sogenannte Knapsack Problem, bei dem es eine Vielzahl an möglichen Items gibt, die man in diesen Rucksack packen kann. Diese Items haben verschiedene Gewichte und Wertigkeiten für die fiktive Reise. Das Suchproblem in diesem Fall ist es, die Konfiguration an Items zu finden, deren Gesamtgewicht das Maximalgewicht des Rucksacks nicht übersteigt und gleichzeitig die aufsummierte Wertigkeit maximiert.
+In einem genetischen Algorithmus würden diese Items dann beispielsweise als Bitarray kodiert werden, wobei eine \"1\" an Index 0 dafür steht, dass man Item 0 einpackt und eine \"0\" an Index 12, dass man Item 12 nicht einpackt. Ein Bitstring aus 0 und 1, der die Länge der Itemliste hat, ist dann ein Encoding für die Lösungskandidaten. Eine Ansammlung von (z.B. 100) zufälligen Lösungskandidaten ist unsere initiale Generation. Diese werden anhand einer Fittnessfunktion bewertet. Ein häufiges Handwerkzeug dabei ist die Formel $ \frac{gute Eigenschaften}{schlechte Eigenschaften}$. In unserem Beispiel ist die Summe der Wertigkeit eine gute Eigenschaft, während die Summe der Gewichte und besonders das Überschreiten des Gewichtslimit schlechte Eigenschaften sind. Anhand dieser Fitnesswerte wird nun eine Selektion durchgeführt, durch die die besseren Kandidaten aus der initialen Generation wahrscheinlich häufiger in der nächsten Generation vorkommen. Diese neue Generation durchläuft nun nacheinander die Schritte Mutation und Rekombination. Bei der Mutation wird ein zufälliger Bruchteil der Lösungskandidaten verändert (z.B. ein Bitflip), um so neue Möglichkeiten abdecken zu können. Bei der Rekombination werden zwei Lösungskandidaten so miteinander kombiniert, dass bei gleichbleibenden Bits in der Gesamtmenge zwei neue Kandidaten entstehen. Durch eine Wiederholung dieser Prozesse (Selektion, Mutation, Rekombination) verbessert sich dadurch die durchschnittliche Fitness und beste Fitness pro Generation, bis zu dem Zeitpunkt, wo man den Algorithmus abbricht oder nahe genug an ein Maximum gekommen ist.
+
+\subsection{Genetische Algorithmen in Bezug auf Malware}
+
+Entweder als Tool zur Noise Generation, Byte Substitution, Genetische Programmierung. Forschung soll sich auf Black Box Themen fokussieren, da sie in der Realität vorkommen. Auch gibt es das Thema von "real sinnvollen Attacken für Malware Defense 
