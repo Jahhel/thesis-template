@@ -1,0 +1,58 @@
+\chapter{Ergebnisse}
+Aus dem Experiment in \ref{Experiment}
+\section{Laufzeit}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.85\textwidth]{gfx/Abbildungen/Boxplot der Laufzeit des Algorithmus_CandlestickChart.png}
+    \caption{Laufzeit des Experiments}
+    \label{fig:result_runtime}
+\end{figure}
+\section{Erfolgsparameter}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.85\textwidth]{gfx/Abbildungen/Ergebnisse_CandlestickChart.png}
+    \caption{Ergebnisse}
+    \label{fig:results}
+\end{figure}
+
+\section{Evaded Konfigurationen}
+\subsection{Hello-World}
+\begin{itemize}
+\item helloworldInterceptordotnetBase6422
+\item helloworldInterceptordotnetXor00
+\item helloworldInterceptornativeNop22
+\item helloworldNymcryptdefaultInterceptornativeNop11
+\item helloworldNymcryptdefaultno-randomizationunhookno-sandboxInterceptordotnetXor
+\item helloworldNymcryptdefaultno-randomizationunhookno-sandboxno-ppid-spoofInterceptordotnetAES
+\item helloworldInterceptornativeRLF22InterceptornativeRLF22
+\item helloworldInterceptornativeXorInterceptordotnetAES00
+\item helloworldNymcryptdefaultno-randomizationencrypt-stringsno-sandboxno-ppid-spoof\-InterceptordotnetXor00
+\item helloworldInterceptordotnetNop22InterceptordotnetRLF22
+\item helloworldInterceptornativeRLF00
+\item helloworldNymcryptdefaultno-randomization\-encrypt-stringsno-sandbox\-InterceptordotnetAES00
+\item helloworldNymcryptdefaultno-randomizationunhookget-syscallstubno-sandbox\-Nymcryptdefaultno-randomizationunhookget-syscallstubno-sandboxno-ppid-spoofInterceptordotnetRLF22
+\end{itemize}
+
+\subsection{Calc}
+\begin{itemize}
+\item calcInterceptordotnetNopInterceptordotnetBase6422
+\item calcInterceptordotnetXor00
+\item calcInterceptordotnetXor11
+\item calcInterceptornativeXor11
+\item calcNymcryptdefaultno-sandboxInterceptordotnetXor00
+\item calcNymcryptdefaultno-sandboxno-ppid-spoofInterceptordotnetNop00
+\item calcInterceptordotnetNopInterceptordotnetBase6422
+\item calcInterceptordotnetXor00
+\item calcInterceptordotnetXor11
+\end{itemize}
+    
+\subsection{Reverse Shell}
+\begin{itemize}
+\item shellNymcryptdefaultencrypt-stringsno-sandboxInterceptornativeRLF
+\item shellNymcryptdefaultno-randomizationunhookencrypt-stringsget-syscallstubno-ppid-spoofInterceptornativeNop00
+\item shellNymcryptdefaultunhookencrypt-stringsget-syscallstubno-sandboxno-ppid-spoofInterceptornativeRLF00
+\item shellNymcryptdefaultencrypt-stringsno-sandboxno-ppid-spoofInterceptordotnetHex11
+\item shellNymcryptdefaultno-randomizationunhookencrypt-stringsInterceptordotnetHex11
+\item shellNymcryptdefaultunhookencrypt-stringsget-syscallstubno-sandboxInterceptornativeRLF00.txt
+\item shellNymcryptdefaultunhookencrypt-stringsno-ppid-spoofInterceptordotnetXor00
+\end{itemize}
