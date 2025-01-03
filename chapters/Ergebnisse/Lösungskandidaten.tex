@@ -1,28 +1,11 @@
-\chapter{Ergebnisse}
-Aus dem Experiment in \ref{Experiment}
-\section{Laufzeit}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.85\textwidth]{gfx/Abbildungen/Boxplot der Laufzeit des Algorithmus_CandlestickChart.png}
-    \caption{Laufzeit des Experiments}
-    \label{fig:result_runtime}
-\end{figure}
-\section{Erfolgsparameter}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.85\textwidth]{gfx/Abbildungen/Ergebnisse_CandlestickChart.png}
-    \caption{Ergebnisse}
-    \label{fig:results}
-\end{figure}
-
-\section{Evaded Konfigurationen}
+\section{Lösungen}
 \subsection{Hello-World}
 \begin{itemize}
 \item helloworldInterceptordotnetBase6422
 \item helloworldInterceptordotnetXor00
 \item helloworldInterceptornativeNop22
 \item helloworldNymcryptdefaultInterceptornativeNop11
-\item helloworldNymcryptdefaultno-randomizationunhookno-sandboxInterceptordotnetXor
+\item helloworldNymcryptdefault\-no-randomizationunhookno-sandbox\-InterceptordotnetXor
 \item helloworldNymcryptdefaultno-randomizationunhookno-sandboxno-ppid-spoofInterceptordotnetAES
 \item helloworldInterceptornativeRLF22InterceptornativeRLF22
 \item helloworldInterceptornativeXorInterceptordotnetAES00
@@ -53,6 +36,7 @@ Aus dem Experiment in \ref{Experiment}
 \item shellNymcryptdefaultunhookencrypt-stringsget-syscallstubno-sandboxno-ppid-spoofInterceptornativeRLF00
 \item shellNymcryptdefaultencrypt-stringsno-sandboxno-ppid-spoofInterceptordotnetHex11
 \item shellNymcryptdefaultno-randomizationunhookencrypt-stringsInterceptordotnetHex11
-\item shellNymcryptdefaultunhookencrypt-stringsget-syscallstubno-sandboxInterceptornativeRLF00.txt
+\item shellNymcryptdefault\-unhook\-encrypt-stringsget\--syscallstubno-sandbox\-InterceptornativeRLF00.txt
 \item shellNymcryptdefaultunhookencrypt-stringsno-ppid-spoofInterceptordotnetXor00
 \end{itemize}
+Auffällig an den Ergebnissen aus dem Experiment mit der Reverse Shell ist, dass es keine einzige Lösung gab, welche nur aus einem Obfuskator bestand und dennoch der AV Entgangen wäre.

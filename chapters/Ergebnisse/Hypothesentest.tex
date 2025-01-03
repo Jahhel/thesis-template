@@ -1,0 +1,19 @@
+\section{Hypothesentests}
+\subsection{PE-File Korrumpierung}
+Aus dem Experiment ergab sich, dass insgesamt 9,5\% der mehrfach obfuskierten Dateien korrumpiert waren. Innerhalb der einzelnen Kategorien waren 0\% in den Bening Samples, 19\% in den eigenständigen Samples und 8\% in den interaktiven Samples korrumpiert und konnten nicht ausgeführt werden.
+In keinem der Fälle wurde das Niveau von 25\% überschritten, was dafür spricht, dass ein Großteil der dargebotenen Files eine sehr solide Rate von Ausführbarkeit beweist und der Algorithmus nicht langwierig in unausführbaren Stacks herumsucht.
+
+\textbf{Hier könnte ein T-Test stehen}
+
+\subsection{Geringe Shellcode Korrumpierung}
+% Todo bei neuem Experiment
+% 
+
+
+\subsection{Red-Teaming Kriterien Erfüllung}
+Aus dem Experiment hat sich - abgesehen von den architektonischen Details - gezeigt, dass die zwei wesentlichen Anforderungen für den praktischen Einsatz mit den gestellten Konfigurationen erfüllt werden können.
+So hat sich nicht nur gezeigt, dass die Laufzeit aller Experimente unterhalb der Zeit lag, die maximal verwendet werden darf, sondern auch gezeigt, dass in jedem Experiment mindestens eine erfolgreiche Evasion Lösung erstellt werden konnte, die von einem AV Scanner nicht erkannt wurde.
+\ref{fig:result_runtime}
+
+\subsection{Einfluss der Länge von Obfuskatorkaskaden}
+Wie bereit ins \ref{fig:Obfuscationstepcount} erwähnt, hat sich anhand der Malwaretypen ein Trend abzeichnen lassen, der vermuten lässt, dass einfach obfuskierte, interaktive Malware immer vom verwendeten AV Scanner erkannt wurde. Auf der anderen Seite hat sich gezeigt, dass es Lösungen gab, welche mit zwei Obfuskationsschritten auskamen. Für die Benign-Testcases hat sich weiterhin gezeigt, dass am häufigsten eine kurze Lösung zum Erfolg führte, aber auch eine (unnötig) lange Lösung mit 4 Schritten dem Scanner entgehen konnte.

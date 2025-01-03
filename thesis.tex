@@ -76,13 +76,12 @@
 \condLOCK{\cleardoublepage\include{frontbackmatter/BlockingNotice}}
 \cleardoublepage\include{frontbackmatter/AbstractEN}
 \cleardoublepage\include{frontbackmatter/AbstractDE}
-%\cleardoublepage\include{frontbackmatter/Publications}
 %\cleardoublepage\include{frontbackmatter/Acknowledgments}
 \cleardoublepage\include{frontbackmatter/Contents}
 \cleardoublepage\include{frontbackmatter/Figures}
 \cleardoublepage\include{frontbackmatter/Tables}
 \cleardoublepage\include{frontbackmatter/Listings}
-\cleardoublepage\include{frontbackmatter/Acronyms}
+%\cleardoublepage\include{frontbackmatter/Acronyms}
 %*************************************************************************
 % Mainmatter
 %*************************************************************************
@@ -92,11 +91,35 @@
 % Alwas use \cleardoublepage before \part{...}.
 \cleardoublepage
 \part{Thesis}\label{pt:thesis}
+
 \include{chapters/Einleitung}
-\include{chapters/Theorie}
-\include{chapters/Methode}
-\include{chapters/Result}
-\include{chapters/Diskussion}
+
+\chapter{Theorie}
+\include*{chapters/Theorie/Malwaredetektion}
+\include*{chapters/Theorie/Malware Detektion Umgehung}
+\include*{chapters/Theorie/Genetische Algorithmen}
+
+\chapter{Methode}
+    \include*{chapters/Methode/Fragestellung}
+    \include*{chapters/Methode/Kriterien}
+    \include*{chapters/Methode/Technologie}
+    \include*{chapters/Methode/Genetischer Algorithmus}
+    \include*{chapters/Methode/Hypothesen}
+    \include*{chapters/Methode/Experiment}
+
+\chapter{Ergebnisse}
+    \include*{chapters/Result}
+
+
+\chapter{Diskussion}
+    \include*{chapters/Diskussion/Zusammenfassung}
+    \include*{chapters/Diskussion/Einordnung in Literatur}
+    \include*{chapters/Diskussion/Implikationen}
+    \include*{chapters/Diskussion/Limitationen}
+    \include*{chapters/Diskussion/Weitere Forschung}
+    \include*{chapters/Diskussion/Fazit}
+
+    
 \include{chapters/Versionsverzeichnus}
 %*************************************************************************
 
