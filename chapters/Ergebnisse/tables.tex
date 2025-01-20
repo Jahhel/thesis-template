@@ -1,0 +1,66 @@
+\begin{table}[]
+\begin{tabular}{@{}lllll@{}}
+\toprule
+                                      &              & WD & MDE & Gesamt \\ \midrule
+\multirow{4}{*}{Laufzeit in Sekunden} & Benign       & 481.3                         & 441.3                                      & 461.3               \\
+                                      & Calc         & 432.7                         & 483                                        & 457.8               \\
+                                      & Shell        & 388.7                         & 534.3                                      & 461.5               \\
+                                      & Durchschnitt & 434.2                         & 486.2                                      & 460.2               \\ \cmidrule(l){2-5} 
+\end{tabular}
+\text{WD = Windows Defender, MDE = Microsoft Defender Enterprise}
+\caption{Laufzeit des Genetischen Algorithmus}
+
+\label{tab:runtime}
+\end{table}
+
+\begin{table}[]
+\begin{tabular}{@{}lllll@{}}
+\toprule
+                                 &              & WD   & MDE  & Gesamt \\ \midrule
+\multirow{4}{*}{Erstellte Files} & Benign       & 47.7 & 35   & 41.3   \\
+                                 & Calc         & 39   & 41.7 & 40.3   \\
+                                 & Shell        & 33   & 39   & 36     \\
+                                 & Durchschnitt & 39.9 & 38.6 & 39.2   \\ \cmidrule(l){2-5} 
+\end{tabular}
+\caption{Erstellte Dateien durch den Genetischen Algorithmus}
+\label{tab:created_files}
+\end{table}
+
+\begin{table}[]
+\begin{tabular}{@{}lllll@{}}
+\toprule
+                                   &              & WD   & MDE & Gesamt \\ \midrule
+\multirow{4}{*}{corrupted Samples} & Benign       & 17   & 0.3 & 8.7    \\
+                                   & Calc         & 19.7 & 0.3 & 10     \\
+                                   & Shell        & 17.7 & 0   & 8.8    \\
+                                   & Durchschnitt & 18.1 & 0.2 & 9.2    \\ \cmidrule(l){2-5} 
+\end{tabular}
+\caption{Unausführbare Dateien durch den Genetischen Algorithmus}
+\label{tab:corrupted_files}
+\end{table}
+
+\begin{table}[]
+\begin{tabular}{@{}lllll@{}}
+\toprule
+                          &              & WD  & MDE & Gesamt \\ \midrule
+\multirow{4}{*}{Evasions} & Benign       & 4.7 & 3.3 & 4      \\
+                          & Calc         & 3.3 & 5   & 4.2    \\
+                          & Shell        & 2   & 3.7 & 2.8    \\
+                          & Durchschnitt & 3.3 & 4   & 3.7    \\ \cmidrule(l){2-5} 
+\end{tabular}
+\caption{Nicht detektierte Malware Files durch den Genetischen Algorithmus}
+\label{tab:evasions}
+\end{table}
+
+\begin{table}[]
+\begin{tabular}{@{}lllll@{}}
+\toprule
+                                        &              & WD  & MDE & Gesamt \\ \midrule
+\multirow{4}{*}{Mehrstufig korrumpiert} & Benign       & 0   & 0   & 0      \\
+                                        & Calc         & 1   & 0.3 & 0.7    \\
+                                        & Shell        & 0.3 & 0   & 0.2    \\
+                                        & Durchschnitt & 0.4 & 0.1 & 0.3    \\ \cmidrule(l){2-5} 
+\end{tabular}
+\caption{Korrumpierte Mehrstufige Malware Files durch den Genetischen Algorithmus}
+\label{tab:multicorruption}
+\end{table}

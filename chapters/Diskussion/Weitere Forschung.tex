@@ -1,3 +1,12 @@
 \section{Weitere Forschung}
-Interessant wäre eine Untersuchung anhand von mehreren Malwarescannern in einem Coevolutionären Kontext
-Ebenso spannend wäre die Untersuchung von komplexeren und Zeitintensiveren Schritten der Obfuskation, wie den in \cite{demetrio_2024_formalizing} genannten Ansätzen zur File-Manipulation von PE Files oder dem Bereich von Adversarial Attacks. Der Ansatz diese verschiedenen Wege zu kombinieren wurde in der bisherigen Literatur in dieser Form noch nicht bearbeitet und bietet die Möglichkeit die Stärken dieser Ansätze zu kombinieren und dennoch noch praktikable Laufzeiten in black-box settings zu generieren.
+
+\cite{alejandro_2024_a} ermöglicht die selbstbestimmung von Mutationsrate, was den Algorithmus potentiell verbessern kann oder zumindest eine Erweiterung darstellen könnte.
+
+\subsection{Erweiterte Fähigkeiten}
+Interessant wäre eine Untersuchung anhand von mehreren Malwarescannern in einem Coevolutionären Kontext. Ebenso spannend wäre die Untersuchung von komplexeren und zeitintensiveren Schritten der Obfuskation, wie den in \cite{demetrio_2024_formalizing} genannten Ansätzen zur File-Manipulation von PE Files oder dem Bereich von Adversarial Attacks. Der Ansatz diese verschiedenen Wege zu kombinieren, wurde in der bisherigen Literatur in dieser Form noch nicht bearbeitet und bietet die Möglichkeit, die Stärken dieser Ansätze zu kombinieren und dennoch noch praktikable Laufzeiten in black-box settings zu generieren.
+
+\subsection{Vorgeschlagener Aufbau}
+Ein optimierter Aufbau dieses Experimentes könnte es sein, den Algorithmus um eine Coevolutionäre Komponente zu erweitern und so die Detektionsrate der AV-Scanner zu verbessern und im Anschluss die Dateien, welche die Scans überstanden haben, mit einem Automatic Malware Analysis Tool auf ihre Funktionsfähigkeit zu überprüfen. Dies wäre eine deutliche Erweiterung der bisherigen Funktionalität und würde einen massiven Mehrwert für die Funktionalität von Red-Teams bedeuten, da sie sich darauf verlassen können, dass ihre Malware auch die Ergebnisse erzielt, mit denen sie rechnen. Dies würde den Ansatz von Castro et al. \cite{castro_2019_armed} aufgreifen, eine Sandbox Umgebung zu verwenden, um die generierten Malwarevarianten zu bewerten, könnte allerdings eine massive zeitliche Verbesserung gegenüber der damaligen Studie anbieten.
+
+\subsection{AV-Scanner}
+Neben der Betrachtung der Angreifersicht wäre auch eine Untersuchung von AV Scannern und ihre Fähigkeit der Dektion von mehrfach obfuskierter Malware von Nutzen. Bevor dies aber zu einem Schwerpunkt der Forschung werden sollte, müsste erstmal nachgewiesen werden, dass die Malware überhaupt in der Lage ist Schaden auf den betroffenen Geräten anzurichten.

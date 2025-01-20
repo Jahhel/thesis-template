@@ -14,15 +14,15 @@ Um die beiden Modi von PE und RAW gleichermaßen abdecken zu können, wurde sich
     \subsubsection{Inceptor}
     Inceptor ist ein Tool, welches seinen PE-Input mithilfe von Tools in ein intermittierendes Shellcodeformat verwandelt und auf dieser Ebene dann seine Obfuskationen durchführt. Hierbei erlaubt es Sandboxdeception, Verschlüsselung, verschiedene Generatoren und Encodings...
     \cite{wauters_2024_building}.
-    (https://github.com/klezVirus/inceptor)    \subsubsection{Nimcrypt2}
-    Dieses Tool bietet neben der klassischen Verschlüsselung von Strings und dynamischer Schlüsselgeneration mit AES auch Sandbox Evasion als Möglichkeit an, ebenso wie die Randomisierung von Syscalls der Windows API
+    \cite{klezVirus_n.d.} 
+    \textbf{ZITATION Prüfen}
     \subsubsection{Nimcrypt2}
-    \cite{icyguider_2022_nimcrypt}
+    Dieses Tool bietet neben der klassischen Verschlüsselung von Strings und dynamischer Schlüsselgeneration mit AES auch Sandbox Evasion als Möglichkeit an, ebenso wie die Randomisierung von Syscalls der Windows API \cite{icyguider_2022_github}.
 
     
 \subsection{Antivirenscanner}
-Microsoft Defender stuff
-TODO!!
+Windows Defender und Microsoft Defender Enterprise sind die beiden AV Lösungen von Microsoft.  
+\textbf{Todo!}
 
 \subsection{Pipeline: Obscurus}
-Bei der verwendeten Pipeline namens 'Obscurus' handelt es sich um eine API basierte, interne Lösung, die PE und Raw Files nach bestimmten Konfigurationen obfuskiert und die obfuskierte Malware zurück gibt. Neben dem Obfuskationsmodus hat das Tool ebenso noch eine AV-Scan Funktion mit der verschiedene AV Softwaren ein File Scannen können und damit erkennen, ob Malware obfuskiert werden konnte.
+Bei der verwendeten Pipeline namens 'Obscurus' handelt es sich um eine API basierte interne Lösung, die PE und Raw Files nach bestimmten Konfigurationen obfuskiert und die obfuskierte Malware zurück gibt. Neben dem Obfuskationsmodus hat das Tool ebenso noch eine AV-Scan Funktion mit der verschiedene AV Softwaren ein File scannen können und damit erkennen, ob Malware obfuskiert werden konnte.

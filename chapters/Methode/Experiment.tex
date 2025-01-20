@@ -3,9 +3,9 @@
 Der experimentelle Ablauf ist inspiriert von \cite{holm_2023_hide}. 
 Anders als dieser Ansatz soll in unserem Algorithmus jedoch nicht (blind) jegliche Konfiguration verwendet und betrachtet werden, sondern nur jene, die vom genetischen Algorithmus erzeugt und selbstständig gescannt wurden, sodass anhand der zwischengespeicherten Daten eine Analyse durchgeführt werden kann.
 
-Aufgrund der Tatsache, dass Malware Erkennung unterschiedlich gut performt, basierend auf der Art von Malware, sollen in diesem Experiment verschiedene Arten von Malware getestet werden. Benignware, Selbstständige Malware und Interactive Malware (Reverse Shell) wurden auch schon von \cite{holm_2023_hide} verwendet, um das System zu überprüfen, weswegen auch hier ein helloworld-Programm, ein mit Metasploit ersteller PE File, welcher mittels der Windows API den Taschenrechner öffnet und einer Reverseshell, welche von Metasploit erstellt wurde verwendet wurde, um die verschiedenen Areale abdecken zui können.
+Aufgrund der Tatsache, dass Malware Erkennung unterschiedlich gut performt, basierend auf der Art von Malware, sollen in diesem Experiment verschiedene Arten von Malware getestet werden. Benignware, Selbstständige Malware und Interactive Malware (Reverse Shell) wurden auch schon von \cite{holm_2023_hide} verwendet, um das System zu überprüfen, weswegen auch hier ein helloworld-Programm, ein mit Metasploit ersteller PE File, welcher mittels der Windows API den Taschenrechner öffnet und einer Reverseshell, welche von Metasploit erstellt wurde verwendet wurde, um die verschiedenen Areale abdecken zu können.
 
-Im Detail sieht der Ablauf also für jede Sampledatei (Helloworld als Benignware, Calc.exe from Metasploit, Reverseshell from Metasploit) wie folgt aus.
+Im Detail sieht der Ablauf also für jede Sampledatei (Helloworld als Benignware, Calc.exe from Metasploit, Reverseshell from Metasploit) wie folgt aus:
 \begin{enumerate}
     \item Ausführung des Genetischen Algorithmus
     \item Zählung der erzeugten Dateien
