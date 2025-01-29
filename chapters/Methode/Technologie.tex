@@ -9,20 +9,19 @@ Für die Entwicklung der zwei Modi (Dropper und PE File) wurde die Architektur f
     \label{fig:architecture}
 \end{figure}
 
+
+
+    
+\subsection{Antivirenscanner}
+Microsoft Defender for Individuals (früher Windows Defender) und Microsoft Defender Enterprise sind die AV-Lösungen von Microsoft für Individuen und Unternehmen. Über beide lässt sich nur wenig technisches herausfinden. Dabei gibt Microsoft an, dass die Individual Lösung "schützt persönliche Daten, Geräte und Smartphones gegen bösartige Bedrohungen mit einer einfachen App", während die Enterprise Lösung "verhindert, erkennt und reagiert auf Angriffe über verschiedene Geräte, Identitäten, ...". . Weiterhin bietet die Enterprise Lösung weitere Möglichkeiten für die Administration und Orchestrierung von Endpoint Detection Möglichkeiten für Geschäftskunden \cite{microsoft_microsofta,microsoft_microsoftb}.
+
+\subsection{Pipeline: Obscurus}
+Bei der verwendeten Pipeline namens 'Obscurus' handelt es sich um eine API basierte interne Lösung, die PE und Raw Files nach vorgegebenen Konfigurationen obfuskiert und die obfuskierte Malware zurück gibt. Neben dem Obfuskationsmodus hat das Tool ebenso noch eine AV-Scan Funktion mit der verschiedene AV Softwaren ein File scannen können und damit erkennen, ob Malware erfolgreich obfuskiert werden konnte.
+
 \subsection{Obfuskatoren}
 Um die beiden Modi von PE und RAW gleichermaßen abdecken zu können, wurde sich für eine Auswahl aus Packern entschieden, welche beide Varianten abdecken können und die bereits in der Pipeline integriert waren.
     \subsubsection{Inceptor}
     Inceptor ist ein Tool, welches seinen PE-Input mithilfe von Tools in ein intermittierendes Shellcodeformat verwandelt und auf dieser Ebene dann seine Obfuskationen durchführt. Hierbei erlaubt es Sandboxdeception, Verschlüsselung, verschiedene Generatoren und Encodings...
-    \cite{wauters_2024_building}.
-    \cite{klezVirus_n.d.} 
-    \textbf{ZITATION Prüfen}
+    \cite{wauters_2024_building,klezvirus_templatedriven} 
     \subsubsection{Nimcrypt2}
     Dieses Tool bietet neben der klassischen Verschlüsselung von Strings und dynamischer Schlüsselgeneration mit AES auch Sandbox Evasion als Möglichkeit an, ebenso wie die Randomisierung von Syscalls der Windows API \cite{icyguider_2022_github}.
-
-    
-\subsection{Antivirenscanner}
-Windows Defender und Microsoft Defender Enterprise sind die beiden AV Lösungen von Microsoft.  
-\textbf{Todo!}
-
-\subsection{Pipeline: Obscurus}
-Bei der verwendeten Pipeline namens 'Obscurus' handelt es sich um eine API basierte interne Lösung, die PE und Raw Files nach bestimmten Konfigurationen obfuskiert und die obfuskierte Malware zurück gibt. Neben dem Obfuskationsmodus hat das Tool ebenso noch eine AV-Scan Funktion mit der verschiedene AV Softwaren ein File scannen können und damit erkennen, ob Malware obfuskiert werden konnte.

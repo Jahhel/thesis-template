@@ -1,22 +1,24 @@
-\section{Lösungen}
-\subsection{Hello-World}
+\chapter{Lösungen}
+Dies sind die Konfigurationen der Obfuskatoren, welche den AV-Scannern entgangen waren. Da keine signifikanten Unterschiede zwischen den AV Scannern angesichts der Lösungslänge aufgetreten sind, ist die Aufzählung nur anhand der Malwaretypen bzw. Samples gegliedert.
+
+\section{Hello-World}
 \begin{itemize}
 \item helloworldInterceptordotnetBase6422
 \item helloworldInterceptordotnetXor00
 \item helloworldInterceptornativeNop22
 \item helloworldNymcryptdefaultInterceptornativeNop11
-\item helloworldNymcryptdefault\-no-randomizationunhookno-sandbox\-InterceptordotnetXor
+\item helloworldNymcryptdefault\-no-randomization\-unhookno-sandbox\-InterceptordotnetXor
 \item helloworldNymcryptdefaultno-randomizationunhookno-sandboxno-ppid-spoofInterceptordotnetAES
-\item helloworldInterceptornativeRLF22InterceptornativeRLF22
-\item helloworldInterceptornativeXorInterceptordotnetAES00
+\item helloworldInterceptornativeRLF22\-InterceptornativeRLF22
+\item helloworldInterceptor\-nativeXorInterceptordotnetAES00
 \item helloworldNymcryptdefaultno-randomizationencrypt-stringsno-sandboxno-ppid-spoof\-InterceptordotnetXor00
-\item helloworldInterceptordotnetNop22InterceptordotnetRLF22
+\item helloworld\-InterceptordotnetNop22\-InterceptordotnetRLF22
 \item helloworldInterceptornativeRLF00
 \item helloworldNymcryptdefaultno-randomization\-encrypt-stringsno-sandbox\-InterceptordotnetAES00
-\item helloworldNymcryptdefaultno-randomizationunhookget-syscallstubno-sandbox\-Nymcryptdefaultno-randomizationunhookget-syscallstubno-sandboxno-ppid-spoofInterceptordotnetRLF22
+\item helloworldNymcryptdefaultno-randomizationunhookget-syscallstubno-sandbox\-Nymcryptdefaultno-randomizationunhookget\--syscallstubno\--sandboxno-ppid-spoof\-InterceptordotnetRLF22
 \end{itemize}
 
-\subsection{Calc}
+\section{Calc}
 \begin{itemize}
 \item calcInterceptordotnetNopInterceptordotnetBase6422
 \item calcInterceptordotnetXor00
@@ -29,14 +31,14 @@
 \item calcInterceptordotnetXor11
 \end{itemize}
     
-\subsection{Reverse Shell}
+\section{Reverse Shell}
 \begin{itemize}
 \item shellNymcryptdefaultencrypt-stringsno-sandboxInterceptornativeRLF
-\item shellNymcryptdefaultno-randomizationunhookencrypt-stringsget-syscallstubno-ppid-spoofInterceptornativeNop00
-\item shellNymcryptdefaultunhookencrypt-stringsget-syscallstubno-sandboxno-ppid-spoofInterceptornativeRLF00
-\item shellNymcryptdefaultencrypt-stringsno-sandboxno-ppid-spoofInterceptordotnetHex11
-\item shellNymcryptdefaultno-randomizationunhookencrypt-stringsInterceptordotnetHex11
+\item shellNymcryptdefaultno-randomization\-unhookencrypt-stringsget-syscallstubno-ppid-spoof\-InterceptornativeNop00
+\item shellNymcryptdefault\-unhookencrypt-stringsget-syscallstubno-sandboxno-ppid-spoof\-InterceptornativeRLF00
+\item shellNymcryptdefault\-encrypt-stringsno-sandboxno-ppid-spoof\-InterceptordotnetHex11
+\item shellNymcryptdefaultno-randomization\-unhooken\-crypt-stringsInterceptordotnetHex11
 \item shellNymcryptdefault\-unhook\-encrypt-stringsget\--syscallstubno-sandbox\-InterceptornativeRLF00.txt
-\item shellNymcryptdefaultunhookencrypt-stringsno-ppid-spoofInterceptordotnetXor00
+\item shellNymcryptdefaultunhookencrypt-stringsno-ppid-spoof\-InterceptordotnetXor00
 \end{itemize}
 Auffällig an den Ergebnissen aus dem Experiment mit der Reverse Shell ist, dass es keine einzige Lösung gab, welche nur aus einem Obfuskator bestand und dennoch der AV entgangen wäre.

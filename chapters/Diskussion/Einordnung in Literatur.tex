@@ -1,11 +1,14 @@
 \section{Einordnung der Ergebnisse}
-Wie in der Literatur schon verwiesen, ist ein Großteil von heute verwendeter Malware eine gepackte Variante von alter Malware \cite{zhang_2019_a}. So ist es nicht weiter verwunderlich, dass diese weit verbreiteten Tools noch immer effektiv sind und gerade in Kombination als 'multi-packing' in allen Testcases zu einem Erfolg führten. 
+Wie in der Literatur schon verwiesen, ist ein Großteil von heute verwendeter Malware eine gepackte Variante von alter Malware \cite{zhang_2019_a}. So ist es nicht weiter verwunderlich, dass diese weit verbreiteten Tools noch immer effektiv sind und gerade in Kombination als 'multi-packing' in allen Testcases zu einem Erfolg führten. Hier scheint sich nachweisen zu lassen, dass mittels wenig Arbeitsaufwand für Angreifer mit bereits vorhandenen Mitteln potentere Malewarevarianten zu generieren.  Bestätigt sich, dass Stacking von Packern und Obfuscatoren verwendet wird \cite{nawaz_2022_on} und zu Erfolgen führen kann.
 
-Im Gegensatz zu den praktischen Erfahrungen 
- aus dem Redteaming ist es hingegen überraschend, dass selbst lange Kaskaden von Obfuskationsschritten nicht nur ausführbar waren, sondern auch noch die AV Software umgehen konnten. 
+Im Gegensatz zu den praktischen Erfahrungen  aus dem Redteaming ist es hingegen überraschend, dass selbst lange Kaskaden von Obfuskationsschritten nicht nur ausführbar waren, sondern auch noch die AV Software umgehen konnten. Hier muss man allerdings einschränkend erwähnen, dass die bösartige Payload nicht erneut auf ihre Funktionsfähigkeit überprüft wurde, sondern auf die Rückgabe von Obscurus (\ref{Sec:Technologie}) zurückgegriffen wurden, ohne eine weitere Malware Analysis Umgebung zu verwenden.
 
-Die Anteile der korrumpierten Files in den Experimenten decken sich mit der, die in der Literatur bisher gefunden wurden (25\% waren ausführbar \cite{castro_2019_armed}).
+Die Anteile der korrumpierten Files in den Experimenten unterschreiten die, die in der Literatur bisher gefunden wurden (25\% waren ausführbar \cite{castro_2019_armed}). So wurden in ARMED allerdings auch Bytemodifikationen durchgeführt, welche schnell das strickte PE-File Format verletzen und dadurch nicht ausführbar sein könnten. 
 
-Bestätigt sich, dass Stacking von Packern und Obfuscatoren verwendet wird \cite{nawaz_2022_on}.
+Im Gegensatz zu \cite{wang_2022_a} hatte das vorliegende Experiment eine höhere Erfolgsquote von 95\%. In besagter Studie wurde die Evasionrate  (54\%) allerdings auch als Evasion gegenüber einer ganzen Batterie von AV Scannern betrachtet, was eine erhöhte Schwierigkeit anspricht. Eine Korrumpierungsquote wurde in dieser Studie nicht berichtet, was interessant wäre, da sie sich der Injektion von gutartigen Softwarefragmenten bediente, um die Payload zu obfuskieren und ein kooperativer genetischer Algorithmus verwendet wurde.
 
-\cite{wang_2022_a} hatte höhere Evasion Rates
+Unterschiede in den Erfolgsquoten von verschiedenen Malwarearten hatten sich schon in \cite{holm_2023_hide} gezeigt. Dies deckt sich mit den Ergebnissen über unterschiedliche Komplexität und Länge von Obfuskationskaskaden.
+
+Im Vergleich zu \cite{castro_2019_armed} benötigte die vorliegende Vorgehensweise für eine einzelne funktionale Lösung im Schnitt nur 124 Sekunden statt 5 Minuten statt 5 Minuten (vgl. Tabellen \ref{tab:runtime, tab:evasions}). Dabei bleibt eine Fehlerquote von etwa 15\% bestehen, die ebenfalls besser ist, als die von Castro et al. beschriebene.
+
+Ingesamt decken sich die meisten der Ergebnisse aus dem Experiment mit den Daten aus der Literatur, eine Überraschung wurde im Gegensatz zur Erwartung der Subject Matter Experts gefunden, wohingegen ansonsten teilweise Verbesserung der Ergebnisse erreicht wurde.

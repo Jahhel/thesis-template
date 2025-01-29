@@ -1,7 +1,39 @@
-\section{Explorativ}
-Der Kruskal Wallis Test auf Unterschiede zwischen den  Ergebnissen mit den verschiedenen Scannern zeigte keine signifikanten Unterschiede anhand der Daten (\textit{p}>.3).
+\section{Explorative Tests}
+\subsection{Statistische Tests}
+\begin{listing}
+   \begin{minted}{Python} 
+# Number of created Files
+benign = [31,70,42,31,38,36]
+calc = [38,35,44,48,37,40]
+shell = [43,28,28,24,62,31]
 
+# Percentage of Corrupted Samples (corrupted/created files)
+benign_cor = [12./32,24/70.,15/42.0,0,0,1/36.0]
+calc_cor = [16/38.,24/35.,19./44,0,0,1/40]
+shell_cor = [23/43.,15/28.,15/28.,0,0,0]
 
+# Number of evaded Samples
+benign_ev = [4,6,4,3,4,3]
+calc_ev = [3,4,3,6,5,4]
+shell_ev = [4,1,1,2,5,4]
 
+# Tests
+print("Created files")
+print( stats.kruskal(benign,calc,shell))
+print("Evasions")
+print( stats.kruskal(benign_ev,calc_ev,shell_ev))
+print("corruption")
+print( stats.kruskal(benign_cor,calc_cor,shell_cor))
+   \end{minted}
+   \caption{Explorative Kruskal Wallis Test}
+   \label{Explorativ_tests}
+\end{listing}
 
+Die Kruskal Wallis Tests (Code \ref{Explorativ_tests}) auf Unterschiede zwischen den  Ergebnissen Typen der Malware auf die Korruptionsanteile, die Erfolgswahrscheinlichkeit und die Anzahl der erzeugten Files zeigten keine signifikanten Unterschiede auf (alle \textit{p}>.3). Dies lässt darauf schließen, dass das Tool über verschiedene Malwaretypen einsetzbar ist und nicht bei bestimmten Typen schlechter oder besser performt.
 
+\subsection{Post-Experiment Tests}
+Nach Durchführung des Experiments wurde eine Stichprobe der mehrfach obfuskierten Calc.exe Malwarefiles auf ihre Funktionalität getestet, wobei sich ergab, dass 85\% der 20 mehrstufigen Obfuskationen des ursprünglichen PE Files noch ausführen ließen. 
+
+\subsection{Erkenntnisse für genetische Algorithmen}
+Abseits von den Hypothesen und der Hauptforschungsfrage hat sich herausgestellt, dass die Anzahl der tatsächlich durchgeführten Fitnessberechnungen innerhalb der Experimente noch deutlich geringer waren, als angenommen. So war die Anzahl der erstellten Files im Schnitt 39.2 (vgl. Tabelle \ref{tab:created_files}); eine Zahl die geringer ist, als die Populationsgröße selbst und somit für eine ganze Menge von Kollisionen spricht. Abgesehen davon sind in den 39.2 Files bereits die Zwischenergebnisse inkludiert, sodass die tatsächliche Zahl an Scans vermutlich noch geringer liegt. Mit diesem Ergebnis lässt sich darüber nachdenken, ob es nicht trotzdem noch tragbar ist, den Scanbereich zeitintensiver und restriktiver zu gestalten, sodass man die Erfolgsquote des Algorithmus noch weiter erhöhen kann. 
+Die geringe Scanquote lässt sich einerseits aus der Anzahl der Kollisionen \ref{BirthdayParadox}, andererseits aber auch mithilfe des Cachings \ref{meth:caching} und der gewählten Rekombinationsart erklären.

@@ -77,11 +77,14 @@ Die Mutation ist in zwei Bestandteile aufgeteilt. Einerseits eine simple Veränd
 
 
 \subsection{Rekombination}
-Für die Rekombination sind viele verschiedene Implementierungen möglich gewesen. Nach einigen Überlegungen wurden dann zwei verschiedene Rekombinationsarten implementiert und ausprobiert.
+Für die Rekombination sind viele verschiedene Implementierungen möglich gewesen. Nach einigen Überlegungen wurden dann zwei verschiedene Rekombinationsarten implementiert.
 \subsubsection{String-based-Recombination}
 Ähnlich dem klassischen Binary-String Encoding werden hier die Lösungskandidaten an einer beliebigen Stelle durchgeschnitten und die zweite Hälfte zwischen diesen ausgetasucht. Dieser Schnitt kann selbstverständlich an einer Obfuskationskonfigurationsgrenze auftreten und so nur das Stapeln verändern, aber auch innerhalb der Konfiguration.
 \subsubsection{Sacrifice Based Shema}
 In diesem Beispiel wird von einem Kandidaten eine Konfiguration entfernt und dem anderen Kandidaten hinzugefügt. Dies kann dazu führen, dass eine Lösung keine Obfuskationsschritte beinhaltet und dabei dann als nicht obfuskiertes File behandelt und gescanned wird.
+
+\subsubsection{Rekombinationsauswahl}
+Für die Experimente in dieser Studie wurde sich für die String-based Rekombination entschieden, welche auf dem theoretischen Fundament der Schema Theorie aus \ref{Sec:GeneticAlgorithms} aufbaut. Dieses vereinfachte Modell geht von binary Strings aus, welche mittels einer kontinuierlichen Fittnessfunktion bewertet werden können. Durch Mutation, Selektion und Rekombination ergibt sich daraus, dass kurze Schemata mit hoher Fitness über verschiedene Generationen häufiger vorkommen werden und sich so aus diesen Bausteinen bessere Lösungen konstruieren lassen, als es aus einzelnen Bits möglich ist. In der vorliegenden Untersuchung lässt sich so eine bestimmte Teilkonfiguration für Obfuskatoren als ein Baustein beschreiben, welcher eine höhere Fitness haben kann, als ein anderer Baustein.
 
 
 
@@ -107,14 +110,20 @@ Hierzu lässt sich die Berechnung der Wahrscheinlichkeit von zwei identischen Ka
 
 
 \begin{itemize}
-    \item 45 Lösungskandidaten\footnote{97.5\% W-Keit von mehrfach identischen Konfigurationen}, die zufällig mittels eines Stackingparameters erstellt wurden 
-    \item 20 Lösungskandidaten\footnote{51\% W-Keit von mehrfach identischen Konfigurationen}, die alle mit maximaler Länge erstellt werden
+    \item 45 Lösungskandidaten, die zufällig mittels eines Stackingparameters erstellt wurden 
+    \item 20 Lösungskandidaten, die alle mit maximaler Länge erstellt werden
     \item 20 Lösungskandidaten, die zufällig mittels eines Stackingparameters erstellt wurden
     \item 45 Lösungskandidaten, die alle mit maximaler Länge erstellt werden
 \end{itemize}
 Ziel dieser Varianten ist es, eine Abdeckung der Bereiche (relativ) große Population vs kleine Population sowie lange vs (relativ) kurze Lösungskandidaten abzubilden.
 \subsubsection{Aufbau Pretest}
-Jede Konfiguration wurde mit Bening und Malware einmal durchgeführt und der Verlauf von Rechenzeit, also die Diversität und das Explorations vs Exploitverhalten betrachtet. Ziel ist es, dass die Rechenzeit nicht zu mehr als 80\% in der ersten Generation liegt. Ziel mit den verwendeten Experimentalbedingungen war es den Bereich von bis zu 50 Lösungskandidaten zu untersuchen. Nach Betrachtung mit der Formel \ref{BirthdayParadox}, zeigte sich aber, dass 50 Lösungskandidaten eine Kollisionswahrscheinlichkeit von über 99\% hatte, sodass sich für die Größe 45 mit einer 97,5\% großen Wahrscheinlichkeit war. Die zweite Größe sollte eine Wahrscheinlichkeit von 50\% abbilden, wobei wir mit 20 Lösungskandidaten nun nahe an der gewünschten Größe sind und nach oben aufgerundet haben.
+Jede Konfiguration wurde mit Bening und Malware einmal durchgeführt und der Verlauf von Rechenzeit, also die Diversität und das Explorations vs Exploitverhalten betrachtet.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.85\textwidth]{gfx/Abbildungen/Kollisionswahrscheinlichkeit.png}
+    \caption{Kollisionswahrscheinlichkeiten}
+    \label{fig:mutations}
+\end{figure}
 \subsubsection{Ergebnisse}
 \begin{table}[]
 \begin{tabular}{@{}llll@{}}
@@ -131,3 +140,9 @@ Jede Konfiguration wurde mit Bening und Malware einmal durchgeführt und der Ver
 Im Pretest hat sich gezeigt, dass die Laufzeit mit der Anzahl zusammenhängt (Abbildung \ref{Pretest_Inital}). In einigen Fällen wurde überhaupt keine Lösung für das Problem gefunden, um die Scanner zu umgehen, diese Lösungen (20-Max-Length, 45-Max-Length und 20-Random für Shell) fallen gänzlich aus dem Test heraus, da sie die grundlegende Funktionalität nicht erfüllen können.
 
 Damit scheiden drei der möglichen Lösungen schon dem Vergleich anhand von Kriterien aus und wir verbleiben mit der Option von 45 zufälligen Kandidaten mit einem Stackingparamter <1.0.
+
+\subsection{Caching}
+\label{meth:caching}
+Um die Laufzeit des Algorithmus zu minimieren wurde folgendes Vorgehen zum Caching verwendet. Nach jedem Obfuscationsschritt wurden die erstellten Dateien mit ihrem Konfigurationsnamen zwischengespeichert, sodass eine vielstellige Obfuskation jeden 'Wegpunkt' als Datei hinterlässt, für den die Ausführungszeit zwischengespeichert wurde. Ein Scan fand dann nur anhand der zuletzt erstellten Datei statt. Wenn eine Konfiguration erstellt wurde, für die bereits eine obfuskierte Teillösung vorhanden war, so wurde diese als Grundlage genutzt, um die weiteren Schritte durchzuführen. 
+
+Des weiteren wurde für jeden Scan eine JSON-Datei erstellt, in der die Obfuskationsdauer, die Scandauer, die Scanergebnisse und die errechnete Fitness gespeichert wurden. Für die Experimente wurden alle diese Dateien nach jedem Durchlauf gelöscht, um eine gute Vergleichbarkeit zu gewährleisten.
